@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <style>
+      /* CSS for styling the website and button goes here */
+      button {
+        font-size: 50px;
+        height: 250px;
+        width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="api-button1">Bierre 1</button>
+    <button id="api-button2">Bierre 2</button>
+    <button id="api-button3">Bierre 3</button>
+
+    <div id="api-response">
+      <!-- This div will be used to display the response from the API -->
+    </div>
+
+    <script>
+      // Get a reference to the button and the response div
+      const button1 = document.getElementById("api-button1");
+      const button2 = document.getElementById("api-button2");
+      const button3 = document.getElementById("api-button3");
+
+    
+      const responseDiv = document.getElementById("api-response");
+
+      // Listen for clicks on the button
+      button1.addEventListener("click", function() {
+        // Create a new XMLHttpRequest object
+        const request = new XMLHttpRequest();
+
+        // Set the HTTP method to GET and the URL to the API endpoint
+        request.open("GET", "http://192.168.126.149:5000/1");
+
+        // Set the X_Api_Key and Content-Type headers
+        request.setRequestHeader("isen","isen");
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Listen for the onload event
+        request.onload = function() {
+          // Get the response text
+          const responseText = request.responseText;
+
+          // Set the innerHTML of the response div to the response text or a success message
+          if (responseText === "ok") {
+            responseDiv.innerHTML = "Success!";
+          } else {
+            responseDiv.innerHTML = responseText;
+          }
+        };
+
+        // Send the request
+        request.send();
+      });
+
+      // Listen for clicks on the button
+      button2.addEventListener("click", function() {
+        // Create a new XMLHttpRequest object
+        const request = new XMLHttpRequest();
+
+        // Set the HTTP method to GET and the URL to the API endpoint
+        request.open("GET", "http://192.168.126.149:5000/2");
+
+        // Set the X_Api_Key and Content-Type headers
+        request.setRequestHeader("isen","isen");
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Listen for the onload event
+        request.onload = function() {
+          // Get the response text
+          const responseText = request.responseText;
+          // Set the innerHTML of the response div to the response text or a success message
+          if (responseText === "ok") {
+              responseDiv.innerHTML = "Success!";
+            } else {
+              responseDiv.innerHTML = responseText;
+            }
+          };
+
+          // Send the request
+        request.send();
+      });
+      // Listen for clicks on the button
+      button3.addEventListener("click", function() {
+        // Create a new XMLHttpRequest object
+        const request = new XMLHttpRequest();
+
+        // Set the HTTP method to GET and the URL to the API endpoint
+        request.open("GET", "http://192.168.126.149:5000/3");
+
+        // Set the X_Api_Key and Content-Type headers
+        request.setRequestHeader("isen","isen");
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Listen for the onload event
+        request.onload = function() {
+          // Get the response text
+          const responseText = request.responseText;
+          // Set the innerHTML of the response div to the response text or a success message
+          if (responseText === "ok") {
+              responseDiv.innerHTML = "Success!";
+            } else {
+              responseDiv.innerHTML = responseText;
+            }
+          };
+
+          // Send the request
+        request.send();
+      });
+    </script>
+  </body>
+</html>
